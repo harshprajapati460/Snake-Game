@@ -3,7 +3,7 @@ const foodSound =  new Audio('../music/food.mp3');
 const gameOverSound = new Audio('../music/gameover.mp3');
 const moveSound =new Audio('../music/move.mp3');
 const musicSound = new Audio('../music/music.mp3');
-let speed = 1 6;
+let speed = 6;
 let lastPaintTime = 0;
 let snakeArr= [
     {x: 13, y: 15}
@@ -51,12 +51,12 @@ function gameEngine(){
   //Let the snake eaten the food , update the score and regenerate the food in the grid
          if(snakeArr[0].x == food.x && snakeArr[0].y == food.y){
             foodSound.play();
-           score += 1;
+            
             snakeArr.unshift({x: snakeArr[0].x + inputDir.x,y:  snakeArr[0].y + inputDir.y});
             let a = 2;
             let b = 16;
             food = {x: Math.round(a + (b-a)*Math.random()),y: Math.round(a + (b-a)*Math.random())};
-            scorebox.innerHTML = "Score: " + score;
+
          }
          //Moving the snake
         for(let i=snakeArr.length-2; i >= 0; i--){
